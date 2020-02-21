@@ -1,0 +1,207 @@
+<html lang="en">
+<!--
+*				punktownica - pc
+*
+*       Łukasz Wielgus 15 yo. 30.03.2019
+*
+*
+-->
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="https://encap.github.io/punktownica/">
+  <link rel="alternate" media="only screen and (max-width: 640px)" href="https://encap.github.io/punktownica/">
+  <meta name="Description" content="Oblicz swoje punkty ze świadectwa, egzaminów i konkursów już dziś w szybki i prosty sposób, bez reklam.">
+  <meta name="Keywords" content="kalkulator punkty liceum technikum egzamin gimnazjalny konkursy">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#c0392b">
+	<script>
+    if (document.location.search == "" && screen.width < 700) {
+      document.location = './m/index.html';
+    }
+  </script>
+  <link href="./style.css" type="text/css" rel="stylesheet">
+  <link rel="shortcut icon" href="./favicon.png">
+
+  <title>Punktownica - kalkulator punktów do liceum lub technikum dla gimnazjum, który pamięta użytkownika</title>
+
+	<meta name="thumbnail" content="https://encap.github.io/punktownica/thumbPC.PNG" />
+	<meta property="og:title" content="Punktownica - kalkulator punktów dla gimnazjum" />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="https://encap.github.io/punktownica/thumbPC.PNG" />
+	<meta property="og:image:width" content="1060" />
+	<meta property="og:image:height" content="739" />
+	<meta property="og:url" content="https://encap.github.io/punktownica/" />
+	<meta property="og:description" content="Oblicz swoje punkty ze świadectwa, egzaminów i konkursów już dziś w szybki i prosty sposób, bez reklam. Zapamiętywanie i synchronizacja dancyh!" />
+
+  </head>
+
+<body onload="retrieve()">
+
+  <h1 class="title" onclick="punktacja()">Punktownica!<!-- <span style="font-size: 20px"> Udostępnij stronę znajomym!</span> --></h1>
+
+<form method="post" action="backend.php">
+<div class="container" id="container" onchange="calc()">
+
+  <div class="main" >
+      <button class="nav" id="spButton" type="button" onclick="toggleSp()">Gimnazjum</button>
+
+    <h2 ondblclick="punktacja()">Oceny</h2>
+      <label for="pol">J. polski</label>
+        <input type="number" id="pol" name="pol" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+      <label for="mat">Matematyka</label>
+        <input type="number" id="mat" name="mat" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+      <label for="ang">III przedmiot</label>
+        <input type="number" id="ang" name="ang" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+      <label for="fiz">IV przedmiot</label>
+        <input type="number" id="fiz" name="fiz" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+
+       <p style="font-size: 13px; line-height: 16px;">
+          <span class="hello" id="hello"></span>
+          <br>
+          <span class="stringError" id="stringError"></span>
+          <span class="info" id="info"></span>
+          <br> System wykorzystuje m. in. pliki cookie.
+          <br> Jeśli ich nie chcesz, zmień ustawienia przeglądarki! Nie podawaj swojego imienia.
+          <br>
+        </p>
+        <div id="nickDiv">
+          <input type="text" class="nick" name="nick" id="nick" placeholder="Coś oryginalnego">
+          <p style="font-size: 13px; line-height: 16px;" id="nick-info">Zostaw puste, a przypiszemy dane do urządzenia</p>
+        </div>
+        <button class="button" name="retrieve" id="retrieve">Przywróć moje dane</button>
+  </div>      <!-- koniec div main (oceny swiadectwo)-->
+
+  <div class="exam">
+      <a class="nav" id="mobile" type="button" href="./m/index.html">Wersja mobilna</a>
+
+    <h2 ondblclick="punktacja()">Egzaminy</h2>
+      <label class="sp" for="ehis">Historia i WOS</label>
+        <input class="sp" type="number" id="ehis" name="ehis" min="0" max="100" placeholder="%">
+        <br class="sp">
+      <label for="epol">J. polski</label>
+        <input type="number" id="epol" name="epol" min="0" max="100" placeholder="%">
+        <br class="sp">
+      <label class="sp" for="efiz" id="labelFiz" onclick="moreToggle()">Przyroda </label>&nbsp;&nbsp;<i id="moreToggle" class="down sp" onclick="moreToggle()"></i>
+        <input class="sp" type="number" id="efiz" name="efiz" min="0" max="100" placeholder="%">
+        <br>
+
+      <div id="przyr" class="hide">
+        <label for="eche">Chemia</label>
+          <input type="number" id="eche" name="eche" min="0" max="100" placeholder="%">
+          <br>
+        <label for="egeo">Geografia</label>
+          <input type="number" id="egeo" name="egeo" min="0" max="100" placeholder="%">
+          <br>
+        <label for="ebio">Biologia</label>
+          <input type="number" id="ebio" name="ebio" min="0" max="100" placeholder="%">
+      </div> <!-- koniec div przyroda -->
+
+    <div id="nonPrzyr" class="high">
+      <label for="emat">Matematyka</label>
+        <input type="number" id="emat" name="emat" min="0" max="100" placeholder="%">
+        <br>
+      <label for="eang">Angielski</label>
+        <input type="number" id="eang" name="eang" min="0" max="100" placeholder="%">
+    </div> <!-- koniec div non-przyroda -->
+
+  </div>  <!-- koniec div exam, (punkty egzamin)-->
+
+  <div class="others">
+      <a class="nav" type="button" href="./srednia/index.html">Średnia z ocen</a>
+
+    <h2 ondblclick="punktacja()">Inne</h2>
+
+      <div class="volo">
+        <label for="volo" >Aktywność społeczna:</label>
+        <br>&nbsp;&nbsp;<span id="sliderValue"></span>    <!-- slider volo-->
+          <input type="range" class="volo" id="volo" name="volo" step="1" min="0" max="3" value="0">
+          <br>
+      </div>
+
+    <div class="pasek">
+      <label for="togglePasek" class="swiadectwo">Świadectwo z wyróżnieniem:</label><br>
+        <input type="checkbox" id="togglePasek" name="togglePasek" style="display:none">    <!-- swiadectwo tak/nie -->
+        <label for="togglePasek" class="thumbPasek"><span class="virutalThumbPasek"></span></label><br>
+    </div>
+
+    <div class="konkursy"><label class="labelKon" style="cursor: pointer" onclick="punktacja()">Konkursy i zawody:</label>
+          <select id="kon1" name="kon1">
+              <option value="0">-</option>
+              <option value="1">1 pkt - sportowy powiatowy miejsca 1-3</option>
+              <option value="2">2 pkt - sportowy wojewódzki miejsca 1-3</option>
+              <option value="3">3 pkt - tematyczny / interdys. finalista</option>
+              <option value="5">5 pkt - tematyczny / interdys. laureat</option>
+              <option value="7">7 pkt - przedmiotowy finalista</option>
+          </select>
+          <select id="kon2" name="kon2">
+              <option value="0">-</option>
+              <option value="1">1 pkt - sportowy powiatow>2 pkt - sportowy wojewódz>3 pkt - tematyczny / interdys. finalista</option>
+              <option value="2">2 pkt - sportowy wojewódzki miejsca 1-3</option>
+              <option value="3">3 pkt - tematyczny / interdys. finalista</option>
+              <option value="5">5 pkt - tematyczny / interdys. laureat</option>
+              <option value="7">7 pkt - przedmiotowy finalista</option>
+          </select>
+          <select id="kon3" name="kon3">
+              <option value="0">-</option>
+              <option value="0">Wysokie miejsce w innych zawodach.</option>
+              <option value="1">1 punkt</option>
+              <option value="2">2 punkty </option>
+              <option value="3">3 punkty</option>
+              <option value="4">4 punkty</option>
+              <option value="5">5 punktów</option>
+              <option value="6">6 punktów</option>
+              <option value="7">7 punktów</option>
+              <option value="8">8 punktów</option>
+              <option value="9">9 punktów</option>
+              <option value="10">10 punktów</option>
+        </select>
+    </div>
+
+  </div>  <!-- koniec div others -->
+
+  <div class="form">
+
+    <button id="submit" class="button" name="submit">Zapamiętaj mnie</button>
+  </div>
+
+  <div class="buttons">
+    <button type="button" id="submitBtn" onclick="calc()">Oblicz</button>
+    <button type="button" id="resetBtn" onclick="jsReset()">Resetuj </button>
+  </div>
+
+
+  <div class="results" id="results">
+      <span class="stringWszystkich">Wszystkich:  </span><span id="spanPoints"><input style="display:none" value="0"></span><span class="wynik" id="result" name="result">0</span>
+  </div> <!-- koniec div results -->
+
+
+</div> <!-- koniec div container -->
+</form>
+
+<h4 class="debug" onclick="autoFill()"> Łukasz Wielgus ©</h4>
+<div class="bottom-right">
+  <h4 onclick="background()">Tło on/off<h4>
+</div>
+
+<datalist id="oceny">
+  <option value="2">
+  <option value="3">
+  <option value="4">
+  <option value="5">
+  <option value="6">
+</datalist>
+
+<datalist id="trzy">
+  <option value="1">
+  <option value="2">
+  <option value="3">
+</datalist>
+
+<script src="form.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
