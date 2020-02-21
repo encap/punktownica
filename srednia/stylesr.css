@@ -1,0 +1,289 @@
+/*
+*
+*       Łukasz Wielgus 15 yo. 30.03.2019
+*
+*/
+
+
+body {
+ background-color: #141414;
+ background-image: url("../3.jpg");
+ color: white;
+ font-family: Helvetica;
+ width: 100%;
+ overflow-x: hidden;
+}
+
+@supports (-ms-ime-align:auto) {
+    body {
+         font-family: Arial;
+    }
+}
+
+*::selection {
+  background-color: rgba(242, 27, 4,.45);
+}
+
+#menuToggle {
+  -webkit-touch-callout: none;
+  float: right;
+  background: none;
+	color: inherit;
+	border: none;
+	font: inherit;
+  font-size: .9em;
+	cursor: pointer;
+	outline: none;
+}
+
+#menuToggle, .menu {
+  display: none;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  line-height: 40px;
+  transition: all .3;
+  }
+
+.title {
+  top: 0;
+  height: 1em;
+  font-size: 54px;
+  margin-top: 3%;
+  margin-bottom: 6%;
+  text-align: center;
+  transition: all .3;
+}
+
+.line {
+  display: none;
+  width: 80%;
+  height: 0px;
+  border: 1px solid #c0392b;
+  color: #c0392b;
+  border-radius: 4px;
+  border-color: #c0392b;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.first , .second, .third {
+  width: 22%;
+  min-width: 180px;
+  padding: 10px;
+}
+
+.n {
+  position: relative;
+}
+
+.container .n input {
+  width: 15%;
+  min-width: 60px;
+  border: 2px solid white;
+  border-radius: 4px;
+  float: right;
+  font-weight: bold;
+  outline-color: #c0392b;
+  outline-width: 1px;
+}
+
+.container .n label {
+  position: absolute;
+  top: 0;
+  line-height: 1em;
+}
+
+.first .n:nth-child(2), .second .n:nth-child(2), .third .n:nth-child(2){
+  margin-top: 20px;
+}
+
+.container  button {
+  font-size: 15px;
+  background-color: #c0392b;
+  width: 100%;
+  height: 42px;
+  padding: 12px 24px;
+  border-width: 0;
+  outline: none;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  text-shadow: 4px 2px 17px rgba(0, 0, 0, 0.9);
+  color: #ecf0f1;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.container a {
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 15px;
+  background-color: #c0392b;
+  height: 42px;
+  width: 100%;
+  margin-bottom: 10%;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  text-shadow: 4px 2px 17px rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.container button:active, .container  a:active{
+  transform: scale(.85);
+}
+
+.container button:hover, .container a:hover {
+  background-color: #e26d61;
+}
+
+.results {
+  padding-top: 1em;
+  font-weight: bold;
+  font-size: 30px;
+  transition: all 0.4s;
+  display: flex;
+  justify-content: space-between;
+}
+
+.debug {
+  position: absolute;
+  text-align: left !important;
+  bottom: 0;
+  opacity: 1;
+  left: 30px;
+  transition: all .6s;
+  cursor: not-allowed;
+  transition: all .3;
+}
+
+@media (max-height: 570px) {
+  .top, .container {
+    transform: translateY(-150px);
+  }
+  .debug {
+    font-size: 10px;
+    opacity: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    width: 90%;
+    margin: auto;
+  }
+
+  .title {
+    font-size: 30px;
+    margin-left: 25px;
+    margin-top: 20px;
+    text-align: left;
+  }
+
+  #menuToggle, .menu {
+    display: block;
+  }
+
+  .top {
+    font-size: 1em;
+    width: 93%;
+  }
+
+  .menu {
+    position: absolute;
+    text-align: left;
+    top: 0;
+    right: 0;
+    width: 100%;
+    color: white;
+    z-index: 1;
+    background-color: #c0392b;
+    transform: translateX(-150%);
+    transition: all .3s ease-in-out;
+    box-shadow: 0 5px 10px black;
+  }
+
+  #menuToggle {
+    -webkit-touch-callout: none;
+    float: right;
+    background: none;
+  	color: inherit;
+  	border: none;
+  	font: inherit;
+    font-size: .9em;
+  	cursor: pointer;
+  	outline: none;
+  }
+
+  #menuToggle:hover {
+    color: #c0392b;
+  }
+
+  #menuToggle:focus ~ .menu {
+    transform: translateX(0px);
+  }
+
+  .top a {
+    text-decoration: none;
+    color: #ecf0f1;
+  }
+
+  .top a:hover, .top a:focus, .top a:active {
+    color: #e26d61;
+  }
+   .menuList {
+    list-style-type: none;
+    line-height: 50px;
+    padding: 10%;
+    font-weight: normal;
+   }
+
+  .info {
+    font-size: 15px;
+    float: right;
+    margin-right: 15px;
+  }
+
+  .line {
+    display: block;
+    text-align: center;
+    width: 85%;
+  }
+
+  .container {
+    display: block;
+    margin-top: 5%;
+  }
+
+  .first , .second, .third {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .container button:hover {
+    background-color: #c0392b;
+  }
+
+  .container a {
+    display: none;
+  }
+
+  .container #xd {
+    display: block;
+  }
+
+  .debug {
+    display: none;
+  }
+
+}

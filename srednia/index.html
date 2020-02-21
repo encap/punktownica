@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+*			punktownica - pc srednia
+*
+*       Łukasz Wielgus 15 yo. 30.03.2019
+*
+*
+-->
+<head>
+   <meta charset="UTF-8">
+   <link rel="canonical" href="https://encap.github.io/punktownica/srednia/">
+   <link rel="alternate" media="only screen and (max-width: 640px)" href="https://encap.github.io/punktownica/m/srednia/">
+   <meta name="Description" content="Oblicz swoją średnią z ocen na świadectwie już dziś w szybki i prosty sposób, bez reklam.">
+   <meta name="Keywords" content="kalkulator punkty liceum technikum egzamin gimnazjalny konkursy">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#c0392b">
+   <link href="./stylesr.css" type="text/css" rel="stylesheet">
+   <link rel="shortcut icon" href="../favicon.png">
+   <title>Punktownica - oblicz swoją średnią z ocen na świadectwie!</title>
+
+	<meta name="thumbnail" content="https://encap.github.io/punktownica/thumbPC.PNG" />
+   	<meta property="og:title" content="Punktownica - kalkulator średniej z ocen na świadectwie">
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="https://encap.github.io/punktownica/thumbPC.PNG" />
+	<meta property="og:image:width" content="1060" />
+	<meta property="og:image:height" content="739" />
+	<meta property="og:url" content="https://encap.github.io/punktownica/srednia/" />
+	<meta property="og:description" content="Oblicz swoją średnią z ocen na świadectwie już dziś w szybki i prosty sposób, bez reklam." />
+
+  </head>
+
+<body>
+
+  <div class="top">
+      <h1 class="title">Punktownica!
+        <button id="menuToggle">&#9776;</button>
+        <div class="menu">
+          <ul class="menuList">
+            <li>Kalkulator punktów:</li>
+            <a href="../m/index.html"><li>Szkoła podstawowa</li></a>
+            <a href="../m/index.html#gim" ><li>Gimnazjum</li></a>   
+            <a href="../index.html"><li>Strona główna</li></a>
+            <a onclick="autoFill()" class="info">Łukasz Wielgus © </a>
+          </ul>
+        </div>
+    </h1>
+  </div>
+  <hr class="line">
+
+<div class="container" id="stop" onchange="submit()">
+
+  <div class="first">
+    <a href="../index.html" id="nav">Kalkulator punktów dla sp</a>
+    <div class="n">
+      <label for="1">Religia</label>
+        <input type="number" id="1" name="1" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+    <div class="n">
+      <label for="2">J. polski</label>
+        <input type="number" id="2" name="2" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+    <div class="n">
+      <label for="3">J. Angielski</label>
+        <input type="number" id="3" name="3" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+    <div class="n">
+      <label for="4">III język</label>
+        <input type="number" id="4" name="4" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+    <div class="n">
+      <label for="5">Muzyka</label>
+        <input type="number" id="5" name="5" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+    <div class="n">
+      <label for="6">Plastyka</label>
+        <input type="number" id="6" name="6" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+    <div class="n">
+      <label for="7">Historia</label>
+        <input type="number" id="7" name="7" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+
+  </div> <!-- koniec div first-->
+
+  <div class="second">
+    <a href="../index.html#gim" id="nav">Kalkulator punktów dla gim</a>
+    <div class="n">
+      <label for="8">WOS</label>
+        <input type="number" id="8" name="8" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+    <div class="n">
+      <label for="9">Geografia</label>
+        <input type="number" id="9" name="9" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+    <div class="n">
+      <label for="10">Biologia</label>
+        <input type="number" id="10" name="10" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+    <div class="n">
+      <label for="11">Chemia</label>
+        <input type="number" id="11" name="11" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+    <div class="n">
+      <label for="12">Fizyka</label>
+        <input type="number" id="12" name="12" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+    <div class="n">
+      <label for="13">Matematyka</label>
+        <input type="number" id="13" name="13" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+    <div class="n">
+      <label for="14">Informatyka</label>
+        <input type="number" id="14" name="14" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+  </div> <!-- koniec div second-->
+
+  <div class="third" >
+      <a href="../index.html" id="nav">Strona główna</a>
+    <div class="n">
+      <label for="15">W-F</label>
+        <input type="number" id="15" name="15" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+    <div class="n">
+      <label for="16">EDB</label>
+        <input type="number" id="16" name="16" list="oceny" min="2" max="6" placeholder="0">
+        <br>
+    </div>
+    <div class="n">
+      <label for="17">Rysunek</label>
+        <input type="number" id="17" name="17" list="oceny" min="2" max="6" placeholder="0">
+    </div>
+    <br>
+    <div class="n">
+      <label for="18">Technika</label>
+        <input type="number" id="18" name="18" list="oceny" min="2" max="6" placeholder="0">
+    </div>
+    <br>
+    <button id="add" onclick="add()">Więcej przedmiotów</button>
+    <br>
+    <div class="results" id="results">
+        <span class="stringWszystkich">Średnia:  </span><span class="wynik" id="result">0</span>
+    </div> <!-- koniec div results -->
+	<br>
+	<!-- <span style="font-size: 20px"> Udostępnij stronę znajomym!</span> -->
+    <div id="error">
+    </div>
+    <br>
+  </div> <!-- koniec div third-->
+  <h4 class="debug" onclick="autoFill()"> Łukasz Wielgus ©</h4>
+</div>
+
+
+
+<datalist id="oceny">
+  <option value="2">
+  <option value="3">
+  <option value="4">
+  <option value="5">
+  <option value="6">
+</datalist>
+
+
+<script src="./srednia.js"></script>
+
+</body>
+</html>
