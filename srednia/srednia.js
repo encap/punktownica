@@ -1,6 +1,6 @@
 /*
 *
-*       Łukasz Wielgus 15 yo. 30.03.2019
+*       Łukasz Wielgus 15 yo 30.03.2019
 *
 */
 var n = 18;// ile przedmiotow

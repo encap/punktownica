@@ -1,10 +1,7 @@
 /*
 *
 *
-*		 Nie kopiuj mojej pracy bez zgody
-*	 		skytl.official@gmail.com
-*
-*       Łukasz Wielgus lat 15. 30.03.2019
+*       Łukasz Wielgus 15yo 30.03.2019
 *
 *
 */
@@ -221,13 +218,13 @@ function updateSliderValue() {
 
 // background
 let clicks = 1;
-let image = "./3.jpg";
+let image = "./bg.jpg";
 
 function background() {
  clicks *= -1;
  if (clicks > 0) {
       console.log("image");
-   document.body.style.backgroundImage = 'url("./3.jpg")';
+   document.body.style.backgroundImage = 'url("./bg.jpg")';
  } else {
    console.log("none");
    document.body.style.backgroundImage = "none";

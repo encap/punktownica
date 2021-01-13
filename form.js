@@ -1,7 +1,7 @@
 
 /*
 *
-*       Łukasz Wielgus 15yo. 28.08.2019
+*       Łukasz Wielgus 15yo 28.08.2019
 *
 */
 
